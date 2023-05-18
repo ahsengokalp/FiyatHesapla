@@ -66,40 +66,44 @@ def kiralik_daire_fiyati(kat,en,boy):
     elif kat == 3:
         sonuc = (ZEMIN_KAT * metrekare(en, boy) * 5000)//180
         return sonuc
-
-print("1-Daire Fiyati Hesaplama")
-print("2-Arsa Fiyati Hesaplama")
-print("3-Kiralık Daire Aylık Fiyati Hesaplama")
-sayi=int(input("Seçiminizi giriniz: "))
-if sayi==1:
-   print("1-Ara Kat")
-   print("2-Ust Kat")
-   print("3-Zemin Kat")
-   kat=int(input("Kat seciniz: "))
-   en=int(input("Daire enini giriniz: "))
-   boy=int(input("Daire boyunu giriniz: "))
-   print("Fiyat: ",daire_fiyati(kat,en,boy))
-elif sayi==2:
-   print("1-Daire")
-   print("2-Dikdortgen")
-   sekil=int(input("Arsanin seklini giriniz: "))
-   print("1-Deniz Kenari")
-   print("2-Sehir Merkezi")
-   print("3-Kirsal ")
-   konum=int(input("İstediğiniz konumu giriniz: "))
-   if sekil==1:
-        yaricap=int(input("Arsanın yaricapini girin: "))
-        print("Fiyat:",arsa_fiyat_cember(konum,yaricap))
-   elif sekil==2:
-        kenar1=int(input("Arsanin birinci kenarini girin: "))
-        kenar2=int(input("Arsanin ikinci kenarini girin: "))
-        print("Fiyat:",arsa_fiyat_dıkdortgen(konum,kenar1,kenar2))
-elif sayi==3:
-   print("1-Ara Kat")
-   print("2-Ust Kat")
-   print("3-Zemin Kat")
-   kat = int(input("Kat seciniz: "))
-   en = int(input("Daire enini giriniz: "))
-   boy = int(input("Daire boyunu giriniz: "))
-   print("Kira Fiyatı: ", kiralik_daire_fiyati(kat, en, boy))  
+cikis='h'
+while cikis!='E' and cikis!='e':
+    print("1-Daire Fiyati Hesaplama")
+    print("2-Arsa Fiyati Hesaplama")
+    print("3-Kiralık Daire Aylık Fiyati Hesaplama")
+    print("0-cikis")
+    sayi=int(input("Seçiminizi giriniz: "))
+    if sayi==1:
+       print("1-Ara Kat")
+       print("2-Ust Kat")
+       print("3-Zemin Kat")
+       kat=int(input("Kat seciniz: "))
+       en=int(input("Daire enini giriniz: "))
+       boy=int(input("Daire boyunu giriniz: "))
+       print("Fiyat: ",daire_fiyati(kat,en,boy))
+    elif sayi==2:
+       print("1-Daire")
+       print("2-Dikdortgen")
+       sekil=int(input("Arsanin seklini giriniz: "))
+       print("1-Deniz Kenari")
+       print("2-Sehir Merkezi")
+       print("3-Kirsal ")
+       konum=int(input("İstediğiniz konumu giriniz: "))
+       if sekil==1:
+            yaricap=int(input("Arsanın yaricapini girin: "))
+            print("Fiyat:",arsa_fiyat_cember(konum,yaricap))
+       elif sekil==2:
+            kenar1=int(input("Arsanin birinci kenarini girin: "))
+            kenar2=int(input("Arsanin ikinci kenarini girin: "))
+            print("Fiyat:",arsa_fiyat_dıkdortgen(konum,kenar1,kenar2))
+    elif sayi==3:
+       print("1-Ara Kat")
+       print("2-Ust Kat")
+       print("3-Zemin Kat")
+       kat = int(input("Kat seciniz: "))
+       en = int(input("Daire enini giriniz: "))
+       boy = int(input("Daire boyunu giriniz: "))
+       print("Kira Fiyatı: ", kiralik_daire_fiyati(kat, en, boy))  
+    elif sayi==0:
+        cikis=input("Çıkmak istiyor musunuz(E/e=evet,H/h=hayır:")
       
