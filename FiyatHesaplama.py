@@ -53,9 +53,23 @@ def arsa_fiyat_dıkdortgen(konum,kenar1,kenar2):
     elif konum==3:
         sonuc=kirsal*dıkdortgen_cevre_hesaplama(kenar1,kenar2)*1000
         return sonuc
+def kiralik_daire_fiyati(kat,en,boy):
+    ARA_KAT = 2
+    UST_KAT = 1.6
+    ZEMIN_KAT = 0.9
+    if kat == 1:
+        sonuc = (ARA_KAT * metrekare(en, boy) * 5000)//180
+        return sonuc
+    elif kat == 2:
+        sonuc = (UST_KAT * metrekare(en, boy) * 5000)//180
+        return sonuc
+    elif kat == 3:
+        sonuc = (ZEMIN_KAT * metrekare(en, boy) * 5000)//180
+        return sonuc
 
 print("1-Daire Fiyati Hesaplama")
 print("2-Arsa Fiyati Hesaplama")
+print("3-Kiralık Daire Aylık Fiyati Hesaplama")
 sayi=int(input("Seçiminizi giriniz: "))
 if sayi==1:
    print("1-Ara Kat")
@@ -80,4 +94,12 @@ elif sayi==2:
         kenar1=int(input("Arsanin birinci kenarini girin: "))
         kenar2=int(input("Arsanin ikinci kenarini girin: "))
         print("Fiyat:",arsa_fiyat_dıkdortgen(konum,kenar1,kenar2))
+elif sayi==3:
+   print("1-Ara Kat")
+   print("2-Ust Kat")
+   print("3-Zemin Kat")
+   kat = int(input("Kat seciniz: "))
+   en = int(input("Daire enini giriniz: "))
+   boy = int(input("Daire boyunu giriniz: "))
+   print("Kira Fiyatı: ", kiralik_daire_fiyati(kat, en, boy))  
       
