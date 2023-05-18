@@ -1,3 +1,6 @@
+deniz_kenari=1.6
+sehir_merkezi=1.2
+kirsal=0.8
 def metrekare(en, boy):
         sonuc = en * boy
         return sonuc
@@ -15,11 +18,43 @@ def daire_fiyati(kat, en, boy):
         elif kat == 3:
             sonuc = ZEMIN_KAT * metrekare(en, boy) * 5000
             return sonuc
+def cember_cevre_hesaplama(yaricap):
+    PI=3.14
+    sonuc=2*PI*yaricap
+    return sonuc
+
+def arsa_fiyat_cember(konum,yaricap):
+    global deniz_kenari
+    global sehir_merkezi
+    global kirsal
+
+    if konum==1:
+        sonuc=deniz_kenari*cember_cevre_hesaplama(yaricap)*1000
+        return sonuc
+    elif konum==2:
+        sonuc=sehir_merkezi*cember_cevre_hesaplama(yaricap)*1000
+        return sonuc
+    elif konum==3:
+        sonuc=kirsal*cember_cevre_hesaplama(yaricap)*1000
+        return sonuc
+
 print("1-Daire Fiyati Hesaplama")
-print("1-Ara Kat")
-print("2-Ust Kat")
-print("3-Zemin Kat")
-kat=int(input("Kat seciniz: "))
-en=int(input("Daire enini giriniz: "))
-boy=int(input("Daire boyunu giriniz: "))
-print("Fiyat: ",daire_fiyati(kat,en,boy))
+print("2-Arsa Fiyati Hesaplama")
+sayi=int(input("Seçiminizi giriniz: "))
+if sayi==1:
+   print("1-Ara Kat")
+   print("2-Ust Kat")
+   print("3-Zemin Kat")
+   kat=int(input("Kat seciniz: "))
+   en=int(input("Daire enini giriniz: "))
+   boy=int(input("Daire boyunu giriniz: "))
+   print("Fiyat: ",daire_fiyati(kat,en,boy))
+    elif sayi==2:
+        print("1-Daire")
+        print("1-Deniz Kenari")
+        print("2-Sehir Merkezi")
+        print("3-Kirsal ")
+        konum=int(input("İstediğiniz konumu giriniz: ")
+        yaricap=int(input("Arsanın yaricapini girin: "))
+        print("Fiyat:",arsa_fiyat_cember(konum,yaricap))
+      
